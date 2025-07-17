@@ -60,7 +60,7 @@
       <h2>Direct URL Generation</h2>
       <p>You can also generate QR codes directly using URLs:</p>
       <div class="url-example">
-        <code>/#generate?text=Your%20text%20here</code>
+        <code>{window.location.origin}/#generate?text=Your%20text%20here</code>
       </div>
       <p class="url-note">Replace "Your%20text%20here" with your URL-encoded text</p>
     </div>
