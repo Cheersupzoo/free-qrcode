@@ -90,7 +90,7 @@
   <footer class="footer">
     <p>Simply enter your text and generate a QR code instantly. No registration required.</p>
     <p class="footer-tech">
-      Open source • Built with 
+      <a href="https://github.com/Cheersupzoo/free-qrcode" target="_blank" rel="noopener noreferrer">Open source</a> • Built with 
       <a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer">Svelte</a>
     </p>
   </footer>
