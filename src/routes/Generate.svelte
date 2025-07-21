@@ -83,7 +83,7 @@
 
 
       <div class="text-display">
-        <strong>Text:</strong> {params.text}
+        <strong>Text:</strong> <span style="user-select: all;">{params.text}</span>
       </div>
       <div class="actions">
          <button onclick={handleBackToHome} class="back-button">
