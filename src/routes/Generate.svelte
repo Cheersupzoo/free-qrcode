@@ -61,40 +61,41 @@
 </script>
 
 <div class="container">
-  <main class="main">
+  <main class="main" role="main">
     {#if isLoading}
-      <div class="loading">
+      <div class="loading" aria-live="polite">
         <div class="spinner"></div>
         <p>Generating QR code...</p>
       </div>
     {:else if error}
-      <div class="error">
+      <div class="error" role="alert" aria-live="assertive">
         <p>{error}</p>
         <button onclick={handleBackToHome} class="retry-button">
           Try Again
         </button>
       </div>
     {:else if qrCodeDataUrl}
-      <div class="qr-container">
+      <section class="qr-container" aria-labelledby="qr-result-heading">
+        <h1 id="qr-result-heading" class="sr-only">Generated QR Code Result</h1>
         <div class="qr-wrapper">
-          <img src={qrCodeDataUrl} alt="Generated QR Code" class="qr-image" />
+          <img src={qrCodeDataUrl} alt="QR Code for: {params.text}" class="qr-image" />
         </div>
-      </div>
+      </section>
 
 
       <div class="text-display">
         <strong>Text:</strong> <span style="user-select: all;">{params.text}</span>
       </div>
-      <div class="actions">
+      <div class="actions" role="group" aria-label="QR Code actions">
          <button onclick={handleBackToHome} class="back-button">
       ← Back to Home
     </button>
-        <button onclick={handleDownload} class="download-button">
+        <button onclick={handleDownload} class="download-button" aria-label="Download QR code as PNG image">
           Download QR Code
         </button>
       </div>
     {:else}
-      <div class="error">
+      <div class="error" role="alert">
         <p>No text provided for QR code generation</p>
         <button onclick={handleBackToHome} class="retry-button">
           Go to Home
@@ -207,6 +208,18 @@
     max-width: 500px;
     height: auto;
     display: block;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .text-display {
