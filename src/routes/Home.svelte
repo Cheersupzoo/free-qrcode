@@ -291,7 +291,10 @@
   .privacy-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
-    margin-top: 0.25rem;
+  }
+
+  .privacy-item > div {
+    flex: 1;
   }
 
   .privacy-item strong {
