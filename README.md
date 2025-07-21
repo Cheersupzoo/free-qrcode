@@ -13,7 +13,7 @@ A modern, fast QR code generator built with Svelte 5. Generate QR codes from any
 
 ## Live Demo
 
-Visit the live application: [QR Code Generator](https://capable-begonia-4cf833.netlify.app)
+Visit the live application: [QR Code Generator](https://qrcode.supacheer.com)
 
 ## Technology Stack
 
