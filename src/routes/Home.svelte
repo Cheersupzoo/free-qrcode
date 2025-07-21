@@ -67,6 +67,39 @@
       <p class="url-note">Replace "Your%20text%20here" with your URL-encoded text</p>
     </section>
 
+    <div class="privacy-card">
+      <h2>🔒 Privacy & Security</h2>
+      <div class="privacy-content">
+        <p><strong>Your data never leaves your device.</strong> All QR code generation is processed entirely on your browser - no information is sent to our servers.</p>
+        
+        <div class="privacy-features">
+          <div class="privacy-item">
+            <span class="privacy-icon">🖥️</span>
+            <div>
+              <strong>Client-side Processing</strong>
+              <p>QR codes are generated using JavaScript in your browser</p>
+            </div>
+          </div>
+          
+          <div class="privacy-item">
+            <span class="privacy-icon">🔗</span>
+            <div>
+              <strong>URI Fragment Storage</strong>
+              <p>We use the hash part (#) in URLs which <a href="https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment" target="_blank" rel="noopener noreferrer">never gets sent to servers</a></p>
+            </div>
+          </div>
+          
+          <div class="privacy-item">
+            <span class="privacy-icon">🚫</span>
+            <div>
+              <strong>No Data Storage</strong>
+              <p>We don't store your text, generated QR codes, or any personal information</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="tech-card" aria-labelledby="technology-heading">
       <h2 id="technology-heading">Built with Modern Technology</h2>
       <div class="tech-inline">
@@ -139,6 +172,7 @@
   .info-card,
   .generator-card,
   .url-info-card,
+  .privacy-card,
   .tech-card {
     background: white;
     padding: 2rem;
@@ -150,6 +184,7 @@
   .info-card h2,
   .generator-card h2,
   .url-info-card h2,
+  .privacy-card h2,
   .tech-card h2 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -230,6 +265,54 @@
     color: #64748b;
     font-size: 0.875rem;
     margin: 0;
+  }
+
+  .privacy-content {
+    color: #475569;
+  }
+
+  .privacy-content > p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .privacy-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .privacy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .privacy-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .privacy-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .privacy-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .privacy-item a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  .privacy-item a:hover {
+    text-decoration: underline;
   }
 
   .tech-inline {
@@ -327,6 +410,7 @@
     .info-card,
     .generator-card,
     .url-info-card,
+    .privacy-card,
     .tech-card {
       padding: 1.5rem;
     }
@@ -354,6 +438,18 @@
     .tech-link {
       padding: 0.25rem 0.5rem;
       font-size: 0.875rem;
+    }
+
+    .privacy-features {
+      gap: 1rem;
+    }
+
+    .privacy-item {
+      gap: 0.75rem;
+    }
+
+    .privacy-icon {
+      font-size: 1.25rem;
     }
   }
 </style>
