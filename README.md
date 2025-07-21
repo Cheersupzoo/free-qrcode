@@ -1,47 +1,130 @@
-# Svelte + TS + Vite
+# QR Code Generator
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A modern, fast QR code generator built with Svelte 5. Generate QR codes from any text, URL, or message instantly with a clean, responsive interface.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- 🚀 **Instant Generation**: Create QR codes in real-time
+- 📱 **Mobile Responsive**: Works perfectly on all devices
+- 🔗 **Direct URL Support**: Generate QR codes via URL parameters
+- 💾 **Download Support**: Save QR codes as PNG images
+- ⚡ **Fast & Lightweight**: Built with Svelte 5 and Vite
+- 🎨 **Clean Design**: Modern, intuitive user interface
 
-## Need an official Svelte framework?
+## Live Demo
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+Visit the live application: [QR Code Generator](https://capable-begonia-4cf833.netlify.app)
 
-## Technical considerations
+## Technology Stack
 
-**Why use this over SvelteKit?**
+- **Frontend**: [Svelte 5](https://svelte.dev/) with TypeScript
+- **QR Generation**: [qrcode](https://www.npmjs.com/package/qrcode) library
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: Custom CSS with responsive design
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+## Getting Started
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+### Prerequisites
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+### Installation
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd qr-code-generator
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run check` - Run Svelte type checking
+
+## Usage
+
+### Basic Usage
+
+1. Enter any text, URL, or message in the input field
+2. Click "Generate QR Code" or press Enter
+3. View and download your generated QR code
+
+### Direct URL Generation
+
+You can generate QR codes directly using URL parameters:
+
+```
+/#generate?text=Your%20text%20here
+```
+
+Replace "Your%20text%20here" with your URL-encoded text.
+
+### Examples
+
+- Generate QR for a website: `/#generate?text=https%3A//example.com`
+- Generate QR for text: `/#generate?text=Hello%20World`
+- Generate QR for contact info: `/#generate?text=Contact%3A%20john%40example.com`
+
+## Project Structure
+
+```
+src/
+├── routes/
+│   ├── Home.svelte      # Main landing page
+│   └── Generate.svelte  # QR code generation page
+├── App.svelte           # Main app component with routing
+├── main.ts             # Application entry point
+└── app.css             # Global styles
+```
+
+## Building for Production
+
+1. Build the application:
+```bash
+npm run build
+```
+
+2. The built files will be in the `dist/` directory, ready for deployment.
+
+## Deployment
+
+This project is configured for easy deployment to:
+
+- **Netlify**: Drag and drop the `dist/` folder or connect your Git repository
+- **Vercel**: Import your Git repository
+- **GitHub Pages**: Use GitHub Actions to build and deploy
+- **Any static hosting**: Upload the contents of `dist/` folder
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and commit: `git commit -m 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Built with [Svelte 5](https://svelte.dev/) - The reactive framework
+- QR code generation powered by [qrcode](https://www.npmjs.com/package/qrcode) library
+- Developed with [Vite](https://vitejs.dev/) for fast development experience
+- Vibe Coding with [Bolt](https://bolt.new/)
