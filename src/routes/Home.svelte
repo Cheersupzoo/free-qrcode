@@ -284,7 +284,7 @@
 
   .privacy-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
   }
 
