@@ -24,7 +24,7 @@
     try {
       const dataUrl = await QRCode.toDataURL(text, {
         width: 500,
-        margin: 2,
+        margin: 0,
         color: {
           dark: '#000',
           light: '#ffffff'
