@@ -55,6 +55,18 @@
     link.click();
   }
 
+  function updateURL() {
+    const text = params.text;
+    if (text) {
+      navigate('generate', {
+        text: text,
+        fg: foregroundColor,
+        bg: backgroundColor,
+        margin: margin.toString()
+      });
+    }
+  }
+
   $effect(() => {
     const text = params.text;
     if (text) {

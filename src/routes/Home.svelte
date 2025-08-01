@@ -5,18 +5,10 @@
 
   let { navigate }: Props = $props();
   let text = $state('');
-  let foregroundColor = $state('#000000');
-  let backgroundColor = $state('#ffffff');
-  let margin = $state(2);
 
   function handleSubmit() {
     if (text.trim()) {
-      navigate('generate', { 
-        text: text.trim(),
-        fg: foregroundColor,
-        bg: backgroundColor,
-        margin: margin.toString()
-      });
+      navigate('generate', { text: text.trim() });
     }
   }
 
@@ -465,49 +457,6 @@
 
     .generate-button {
       width: 100%;
-    }
-
-    .color-controls {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem;
-      background: #f8fafc;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .color-group {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .color-group label {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #374151;
-      white-space: nowrap;
-    }
-
-    .color-group input[type="color"] {
-      width: 40px;
-      height: 30px;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .color-group input[type="range"] {
-      width: 80px;
-    }
-
-    .margin-display {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #374151;
-      min-width: 15px;
     }
 
     .url-example {
