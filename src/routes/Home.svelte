@@ -5,6 +5,9 @@
 
   let { navigate }: Props = $props();
   let text = $state('');
+  let foregroundColor = $state('#000000');
+  let backgroundColor = $state('#ffffff');
+  let margin = $state(2);
 
   function handleSubmit() {
     if (text.trim()) {
