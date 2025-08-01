@@ -11,6 +11,9 @@
   let qrCodeDataUrl = $state('');
   let isLoading = $state(false);
   let error = $state('');
+  let foregroundColor = $state('#000000');
+  let backgroundColor = $state('#ffffff');
+  let margin = $state(2);
 
   async function generateQRCode(text: string) {
     if (!text) {
@@ -24,10 +27,10 @@
     try {
       const dataUrl = await QRCode.toDataURL(text, {
         width: 500,
-        margin: 0,
+        margin: margin,
         color: {
-          dark: '#000',
-          light: '#ffffff'
+          dark: foregroundColor,
+          light: backgroundColor
         }
       });
       qrCodeDataUrl = dataUrl;
@@ -55,6 +58,13 @@
   $effect(() => {
     const text = params.text;
     if (text) {
+      generateQRCode(text);
+    }
+  });
+
+  $effect(() => {
+    const text = params.text;
+    if (text && qrCodeDataUrl) {
       generateQRCode(text);
     }
   });
@@ -86,6 +96,40 @@
       <div class="text-display">
         <strong>Text:</strong> <span style="user-select: all;">{params.text}</span>
       </div>
+      
+      <div class="customization-panel">
+        <h3>Customize QR Code</h3>
+        <div class="controls">
+          <div class="control-group">
+            <label for="foreground-color">Foreground Color:</label>
+            <input 
+              type="color" 
+              id="foreground-color"
+              bind:value={foregroundColor}
+            />
+          </div>
+          <div class="control-group">
+            <label for="background-color">Background Color:</label>
+            <input 
+              type="color" 
+              id="background-color"
+              bind:value={backgroundColor}
+            />
+          </div>
+          <div class="control-group">
+            <label for="margin">Margin:</label>
+            <input 
+              type="range" 
+              id="margin"
+              min="0" 
+              max="10" 
+              bind:value={margin}
+            />
+            <span class="margin-value">{margin}</span>
+          </div>
+        </div>
+      </div>
+      
       <div class="actions" role="group" aria-label="QR Code actions">
          <button onclick={handleBackToHome} class="back-button">
       ← Back to Home
@@ -232,6 +276,60 @@
     border: 1px solid #e2e8f0;
   }
 
+  .customization-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    border: 1px solid #e2e8f0;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .customization-panel h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .control-group label {
+    font-weight: 500;
+    color: #374151;
+    min-width: 120px;
+  }
+
+  .control-group input[type="color"] {
+    width: 50px;
+    height: 35px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .control-group input[type="range"] {
+    flex: 1;
+    max-width: 150px;
+  }
+
+  .margin-value {
+    font-weight: 500;
+    color: #374151;
+    min-width: 20px;
+  }
+
   .actions {
     display: flex;
     justify-content: center;
@@ -271,6 +369,24 @@
 
     .text-display {
       font-size: 0.875rem;
+    }
+
+    .customization-panel {
+      padding: 1rem;
+    }
+
+    .control-group {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .control-group label {
+      min-width: auto;
+    }
+
+    .control-group input[type="range"] {
+      max-width: 100%;
     }
 
     .actions {
