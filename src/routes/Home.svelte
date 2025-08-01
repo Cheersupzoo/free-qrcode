@@ -5,9 +5,6 @@
 
   let { navigate }: Props = $props();
   let text = $state('');
-  let foregroundColor = $state('#000000');
-  let backgroundColor = $state('#ffffff');
-  let margin = $state(2);
 
   function handleSubmit() {
     if (text.trim()) {
@@ -40,35 +37,6 @@
           class="text-input"
           aria-label="Text input for QR code generation"
         />
-        <div class="color-controls">
-          <div class="color-group">
-            <label for="home-fg-color">Foreground:</label>
-            <input 
-              type="color" 
-              id="home-fg-color"
-              bind:value={foregroundColor}
-            />
-          </div>
-          <div class="color-group">
-            <label for="home-bg-color">Background:</label>
-            <input 
-              type="color" 
-              id="home-bg-color"
-              bind:value={backgroundColor}
-            />
-          </div>
-          <div class="color-group">
-            <label for="home-margin">Margin:</label>
-            <input 
-              type="range" 
-              id="home-margin"
-              min="0" 
-              max="10" 
-              bind:value={margin}
-            />
-            <span class="margin-display">{margin}</span>
-          </div>
-        </div>
         <button
           onclick={handleSubmit}
           disabled={!text.trim()}
