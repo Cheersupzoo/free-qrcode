@@ -26,7 +26,7 @@
         width: 500,
         margin: 2,
         color: {
-          dark: '#1e293b',
+          dark: '#000',
           light: '#ffffff'
         }
       });
